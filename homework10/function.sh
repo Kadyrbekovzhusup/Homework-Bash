@@ -2,8 +2,6 @@
 
 
 
-
-
 function user {
   useradd tim
   useradd brad

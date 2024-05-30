@@ -1,76 +1,43 @@
 #!/bin/bash
-  
 
-function folder {
+function num1() {
+  useradd tim
+  useradd brad
+  useradd ann
+
   mkdir kaizen
   mkdir zhusup
-}
-folder
-
-function file {
+  
   touch hello
   touch world
 }
-file
+  num1
+ 
 
-
-
-function install_wget() {
-  sudo yum  update
-  sudo yum  install -y wget
+function num2() {
+  sudo yum install httpd
+  sudo yum install wget
+  sudo yum install tree 
+  sudo yum install git 
 }
-install_wget
+  num2
 
+echo "Please choose a function to execute"
+echo " 1. Create users, folders and files"
+echo " 2. Install packages"
+  
+read -p "Enter your choice number: " num
+echo 
 
-function install_httpd() {
-  sudo yum  update
-  sudo yum  install -y apache2
-}
-install_httpd
-
-
-function install_tree() {
-  sudo yum update
-  sudo yum install -y tree
-}
-install_tree
-
-
-function install_git() {
-  sudo yum update
-  sudo yum install -y git
-}
-install_git
-
-
-
-
- prompt_function_name() {
-    echo "Please pick a function to run: install_wget, install_httpd, install_tree, install_git"
-    read -p "Enter function name: " function_name
-
-    case $function_name in
-        install_wget)
-            install_wget
-            ;;
-        install_httpd)
-            install_httpd
-            ;;
-        install_tree)
-            install_tree
-            ;;
-        install_git)
-            install_git
-            ;;
-        *)
-            echo "Invalid function name. Please choose from: install_wget, install_httpd, install_tree, install_git"
-            ;;
-    esac
-}
-
-
-function call() {
-prompt_function_name
-}
-call
-
+  if [ $num -eq 1 ]; 
+then 
+  num1 
+  echo "All users, folders and files are already created"
+  
+  elif [ $num -eq 2 ]; 
+then 
+  num2 
+  echo "All packages are already installed"
+else 
+  echo "Invalid choice. Please choose 1 or 2"
+fi 

@@ -1,14 +1,5 @@
 #!/bin/bash
-
-
-
-function user {
-  useradd tim
-  useradd brad
-  useradd ann
-}
- user
-
+  
 
 function folder {
   mkdir kaizen
@@ -34,21 +25,21 @@ install_wget
 function install_httpd() {
   sudo yum  update
   sudo yum  install -y apache2
-} 
+}
 install_httpd
 
 
 function install_tree() {
   sudo yum update
   sudo yum install -y tree
-} 
+}
 install_tree
- 
+
 
 function install_git() {
   sudo yum update
   sudo yum install -y git
-} 
+}
 install_git
 
 
@@ -82,3 +73,4 @@ function call() {
 prompt_function_name
 }
 call
+
